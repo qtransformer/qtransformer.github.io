@@ -8,26 +8,26 @@
 
     <title>Q-Transformer</title>
 
-    <meta name="description" content="RT-1: Robotics Transformer">
+    <meta name="description" content="Q-Transformer">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- <base href="/"> -->
 
         <!--FACEBOOK-->
-    <meta property="og:image" content="https://robotics-transformer.github.io/img/rt1-teaser.jpeg">
-    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image" content="https://q-transformer.github.io/img/qt_title_overview.png">
+    <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="682">
     <meta property="og:image:height" content="682">
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://robotics-transformer.github.io/"/>
-    <meta property="og:title" content="RT-1: Robotics Transformer" />
-    <meta property="og:description" content="Project page for RT-1: Robotics Transformer." />
+    <meta property="og:url" content="https://q-transformer.github.io/"/>
+    <meta property="og:title" content="Q-Transformer" />
+    <meta property="og:description" content="Project page for Q-Transformer." />
 
         <!--TWITTER-->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="RT-1: Robotics Transformer" />
-    <meta name="twitter:description" content="Project page for RT-1: Robotics Transformer." />
-    <meta name="twitter:image" content="https://robotics-transformer.github.io/img/rt1-teaser.jpeg" />
+    <meta name="twitter:title" content="Q-Transformer" />
+    <meta name="twitter:description" content="Project page for Q-Transformer." />
+    <meta name="twitter:image" content="https://q-transformer.github.io/img/qt_title_overview.png" />
 
 
 <!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
@@ -84,12 +84,12 @@
             <div class="col-md-12 text-center">
                 <ul class="list-inline">
                 <br>
-                <li>Yevgen Chebotar<sup>*</sup></li> <li>Quan Vuong<sub>*</sub></li> <li>Karol Hausman</li> <li>Fei Xia</li> <li>Yao Lu</li> <li>Alex Irpan</li> <li>Aviral Kumar</li> <br>
-                 <li>Tianhe Yu</li> <li>Alexander Herzog</li> <li>Karl Pertsch</li> <li>Keerthana Gopalakrishnan</li> <li>Julian Ibarz</li> <li>Ofir Nachum</li> <li>Grecia Salazarn</li> <br>
-                  <li>Huong T Tran</li> <li>Jodilyn Peralta</li> <li>Clayton Tan</li> <li>Deeksha Manjunath</li> <li>Jaspiar Singht</li> <li>Brianna Zitkovich</li> <li>Tomas Jackson</li> <br>
-                  <li>Kanishka Rao</li> <li>Chelsea Finn</li> <li>Sergey Levine</li><br>
+                <li>Yevgen Chebotar<sup>*</sup></li> <li>Quan Vuong<sup>*</sup></li> <li>Karol Hausman</li> <li>Fei Xia</li> <li>Yao Lu</li> <li>Alex Irpan</li> <li>Aviral Kumar</li> <br>
+                 <li>Tianhe Yu</li> <li>Alexander Herzog</li> <li>Karl Pertsch</li> <li>Keerthana Gopalakrishnan</li> <li>Julian Ibarz</li> <li>Ofir Nachum</li>  <br>
+                  <li>Grecia Salazarn</li> <li>Huong T Tran</li> <li>Jodilyn Peralta</li> <li>Clayton Tan</li> <li>Deeksha Manjunath</li> <li>Jaspiar Singht</li> <br>
+                  <li>Brianna Zitkovich</li> <li>Tomas Jackson</li>  <li>Kanishka Rao</li> <li>Chelsea Finn</li> <li>Sergey Levine</li><br>
                 <br>
-			<b><i> <sub>*</sub> Equal Contribution. </i></b>
+		   <i> <sup>*</sup>Equal contribution</i>
 		<br><br>
                     <a href="http://g.co/robotics">
                     <img src="img/deepmind.png" height="67px"> </a>
@@ -103,7 +103,7 @@
                 <div class="col-md-4 col-md-offset-4 text-center">
                     <ul class="nav nav-pills nav-justified">
                         <li>
-                            <a href="assets/rt1.pdf">
+                            <a href="assets/qtransformer.pdf">
                             <image src="img/paper_small2.png" height="60px">
                                 <h4><strong>Paper</strong></h4>
                             </a>
@@ -115,32 +115,17 @@
                                 <h4><strong>Video</strong></h4>
                             </a>
                         </li>
-                        <li>
-                            <a href="http://ai.googleblog.com/2022/12/rt-1-robotics-transformer-for-real.html">
-                            <image src="img/google-ai-blog-small.png" height="60px">
-                                <h4><strong>Blogpost</strong></h4>
-                            </a>
-                        </li>
-                         <li>
-                            <a href="https://github.com/google-research/robotics_transformer">
-                            <image src="img/github.png" height="60px">
-                                <h4><strong>Code</strong></h4>
-                            </a>                   
-                        </li> 
                     </ul>
                 </div>
         </div>
 
-
-   
-        
-
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <p style="text-align:center;">
-        	    	<video id="v0" width="100%" playsinline autoplay muted loop controls>
-                       <source src="img/rt1_mosaic_comp.mp4" type="video/mp4">
-                   </video>
+        	    <image src="img/qt_title_overview.png" class="img-responsive">
+                </p>
+		<p style="text-align:center;">
+        	    <image src="img/qt_robot_frames.png" class="img-responsive">
                 </p>
                 <h3>
                     Abstract
@@ -148,16 +133,10 @@
                 <p class="text-justify">
 			In this work, we present a scalable reinforcement learning method for training multi-task policies from large offline datasets that can leverage both human demonstrations and autonomously collected data. Our method uses a Transformer to provide a scalable representation for Q-functions trained via offline temporal difference backups. We therefore refer to the method as Q-Transformer. By discretizing each action dimension and representing the Q-value of each action dimension as separate tokens, we can apply effective high-capacity sequence modeling techniques for Q-learning. We present several design decisions that are crucial to obtain good performance with offline RL training, and show that Q-Transformer outperforms prior offline RL algorithms and imitation learning techniques on a large  diverse real-world robotic manipulation task suite.
                 </p>
-             <p style="text-align:center;">
-        	    	<video id="v0" width="100%" playsinline autoplay muted loop>
-                       <source src="img/RT1-video.mp4" type="video/mp4">
-                   </video>
-                   RT-1 shows better performance and generalization thanks to its ability to absorb a large amount of diverse data, including robot trajectories with multiple tasks, objects and environments. Baseline approaches exhibit limited ability to fully utilize large datasets.
-                </p>
             </div>
         </div>
 
-
+	<!--
 	<div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
@@ -170,65 +149,52 @@
                 </div>
             </div>
         </div>
+	-->
 
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-            	<br>
-                <h3>
-                    Approach
-                </h3>
-                <p class="text-justify">
-                In the past few years, we have seen powerful machine learning models that achieve significant generalization capabilities by absorbing large amounts of data. For example, large language models such as PaLM or GPT-3 can generalize to many tasks such as language understanding, code completion or arithmetic, especially as their number of parameters increase.
-Importantly, these large models have the ability to effectively absorb large amounts of diverse data. In the case of large language models that data being text, which allows them to discover patterns and generalize between the observed datapoints. 
-Can we find similar data-absorbent models for robotics? Does such a model enjoy the benefits of scale seen in other domains? And does it exhibit effective zero-shot generalization to new tasks, environments, and objects?
-<br><br>
-To investigate these questions, we present Robotics Transformer, RT-1, a Transformer-based model that we train a large dataset of multi-task demonstrations and showcase how it generalizes to new tasks, how it is robust to changes in the environment and how it allows to execute long-horizon instructions. We also demonstrate its capabilities to effectively absorb data from very different domains such as simulation or different robots.
-                <p style="text-align:center;">
-        	    <image src="img/rt1_teaser.png" class="img-responsive">
-                </p>
-<br>
-How does Robotics Transformer model work? RT-1 takes a short sequence of images and a task description in natural language as input and outputs an action for the robot to execute at each time step.
-To achieve this, our architecture leverages several elements: first, the images and text are processed via an ImageNet-pretrained convolutional neural network (EfficientNet) conditioned on a pretrained embedding of the instruction via FiLM layers to extract visual features that are relevant to the task at hand. This is then followed by a Token Learner module to compute a compact set of tokens, and finally a Transformer to attend over these tokens and produce discretized action tokens.
-The actions consist of seven dimensions for the arm movement (x, y, z, roll, pitch, yaw, opening of the gripper), three dimensions for base movement (x, y, yaw) and an extra discrete dimension to switch between three modes: controlling the arm, the base, or terminating the episode.
-RT-1 performs closed-loop control and commands actions at 3Hz until it either yields a <i>terminate</i> action or runs out of pre-set number of time steps.
-<br><br>
-                <p style="text-align:center;">
-        	    <video id="arch" width="100%" playsinline="" autoplay="" muted="" loop="">
-                       <source src="img/rt_1_teaser_animation_new_comp.mp4" type="video/mp4">
-                   </video>
-                </p>
+<div class="row">
+   <div class="col-md-8 col-md-offset-2">
+	<br>
+	<h3>
+	    Approach
+	</h3>
+	<p class="text-justify">
+		Our approach...
+	<p style="text-align:center;">
+	    <image src="img/qt_title_overview.png" class="img-responsive">
+	</p>
+	Bellman update original...
+	<p style="text-align:center;">
+	        <image src="img/bellman_original.png" class="img-responsive">
+	</p>
+	Bellman update for Q-Transformer...
+	<p style="text-align:center;">
+	        <image src="img/bellman_qt.png" class="img-responsive">
+	</p>
+	Overview of the update...
+	<p style="text-align:center;">
+	        <image src="img/qt_update_fig.png" class="img-responsive">
+	</p>
+	Our model...
+	<p style="text-align:center;">
+	        <image src="img/qt_network_arch.png" class="img-responsive">
+	</p>		    
  </div>
-        </div>
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Data
-                </h3>
-		<p class="text-justify">
-To test RT-1 in the real world, we collected a large dataset of real-world robotic experiences that consists of over 130k episodes, which contain over 700 tasks, and was collected with a fleet of 13 robots over 17 months.
-<br><br>
-The current set of skills includes picking, placing, opening and closing drawers, getting items in and out drawers, placing elongated items up-right, knocking them over, pulling napkins and opening jars. 
-The list of instructions was designed to show multiple skills with many objects to test aspects of RT-1 such as generalization to new instructions and ability to perform many skills. 
-The entire process of adding tasks and data is described in detail in the paper.
-Since we do not make any assumptions about particular skills when adding new instructions, the system is easily extendable, and we can continuously provide more diverse data to improve its capabilities.
-            </div>
-        </div>
-
-
+</div>
+	    
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
                     Results
                 </h3>
 		<p class="text-justify">
-We test generalization capabilities of our model on multiple axes such as previously unseen instructions, robustness to the number of distractor objects (first row in the image below), robustness to different backgrounds and environments such as new, previously unseen kitchens (second row), and realistic scenarios that combine all these elements.
-		
+		We evaluate ...	 <br> <br>
+		We start with real world experiments...
 		<p style="text-align:center;">
-        	    <image src="img/evals.png" class="img-responsive">        	   
+        	    <image src="img/real_results.png" class="img-responsive">        	   
                 </p>
-		We first compare RT-1 to other previously published imitation-learning-based baselines such as Gato and BC-Z (including a BC-Z with a similar number of parameters as RT-1 that we call BC-Z XL).
-		</p>
+		As can be seen...
+	        </p>
+	
 		<p class="text-justify">
 		Across each category, we find that RT-1 outperforms the prior models significantly.
 On seen tasks, RT-1 is able to perform 97% of the more than 700 instructions successfully, which is 25% more than BC-Z and 32% more than Gato.
@@ -305,7 +271,6 @@ On distractors and backgrounds, we find that RT-1 is quite robust, successfully 
 	    </div>
         </div>
             
-       
 
          <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -314,27 +279,13 @@ On distractors and backgrounds, we find that RT-1 is quite robust, successfully 
                 </h3>
                 <div class="form-group col-md-10 col-md-offset-1">
                     <textarea id="bibtex" class="form-control" readonly>
-@inproceedings{rt12022arxiv,
-    title={RT-1: Robotics Transformer for Real-World Control at Scale},
-    author={Anthony	Brohan and  Noah Brown and  Justice Carbajal and  Yevgen Chebotar and  Joseph Dabis and  Chelsea Finn and  Keerthana Gopalakrishnan and  Karol Hausman and  Alex Herzog and  Jasmine Hsu and  Julian Ibarz and  Brian Ichter and  Alex Irpan and  Tomas Jackson and  Sally Jesmonth and  Nikhil Joshi and  Ryan Julian and  Dmitry Kalashnikov and  Yuheng Kuang and  Isabel Leal and  Kuang-Huei Lee and  Sergey Levine and  Yao Lu and  Utsav Malla and  Deeksha Manjunath and  Igor Mordatch and  Ofir Nachum and  Carolina Parada and  Jodilyn Peralta and  Emily Perez and  Karl Pertsch and  Jornell Quiambao and  Kanishka Rao and  Michael Ryoo and  Grecia Salazar and  Pannag Sanketi and  Kevin Sayed and  Jaspiar Singh and  Sumedh Sontakke and  Austin Stone and  Clayton Tan and  Huong Tran and  Vincent Vanhoucke and Steve Vega and  Quan Vuong and  Fei Xia and  Ted Xiao and  Peng Xu and  Sichun Xu and  Tianhe Yu and  Brianna Zitkovich},
-    booktitle={arXiv preprint arXiv:2212.06817},
-    year={2022}
-}</textarea>
+		@inproceedings{rt12022arxiv,
+		    title={RT-1: Robotics Transformer for Real-World Control at Scale},
+		    author={Anthony	Brohan and  Noah Brown and  Justice Carbajal and  Yevgen Chebotar and  Joseph Dabis and  Chelsea Finn and  Keerthana Gopalakrishnan and  Karol Hausman and  Alex Herzog and  Jasmine Hsu and  Julian Ibarz and  Brian Ichter and  Alex Irpan and  Tomas Jackson and  Sally Jesmonth and  Nikhil Joshi and  Ryan Julian and  Dmitry Kalashnikov and  Yuheng Kuang and  Isabel Leal and  Kuang-Huei Lee and  Sergey Levine and  Yao Lu and  Utsav Malla and  Deeksha Manjunath and  Igor Mordatch and  Ofir Nachum and  Carolina Parada and  Jodilyn Peralta and  Emily Perez and  Karl Pertsch and  Jornell Quiambao and  Kanishka Rao and  Michael Ryoo and  Grecia Salazar and  Pannag Sanketi and  Kevin Sayed and  Jaspiar Singh and  Sumedh Sontakke and  Austin Stone and  Clayton Tan and  Huong Tran and  Vincent Vanhoucke and Steve Vega and  Quan Vuong and  Fei Xia and  Ted Xiao and  Peng Xu and  Sichun Xu and  Tianhe Yu and  Brianna Zitkovich},
+		    booktitle={arXiv preprint arXiv:2212.06817},
+		    year={2022}
+		}</textarea>
                 </div>
-            </div>
-             
-        </div>
-
-
-         <div class="row">
-            <div id="open-source" class="col-md-8 col-md-offset-2">
-                <h3>
-                    Open Source
-                </h3>
-              We open source the RT-1 model <a href="https://github.com/google-research/robotics_transformer">[here]. </a>
-              We also open source the data used in RT-1 <a href="https://console.cloud.google.com/storage/browser/gresearch/rt-1-data-release">[here]. </a>
-              <p style="text-align:center;">
-                </p>
             </div>
         </div>
 
