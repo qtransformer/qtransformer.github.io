@@ -181,96 +181,86 @@
  </div>
 </div>
 	    
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Results
-                </h3>
-		<p class="text-justify">
-		We evaluate ...	 <br> <br>
-		We start with real world experiments...
-		<p style="text-align:center;">
-        	    <image src="img/real_results.png" class="img-responsive">        	   
-                </p>
-		As can be seen...
-	        </p>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+	<h3>
+	    Results
+	</h3>
+	<p class="text-justify">
+	We evaluate ...	 <br> <br>
+	We start with real world experiments...
+	<p style="text-align:center;">
+	    <image src="img/real_results.png" class="img-responsive">        	   
+	</p>
+	As can be seen...
+	</p>
+
+	<p class="text-justify">
+		We also benchmark in simulation...
+	</p>
+	<p style="text-align:center;">
+	    <image src="img/sim_exps.png"  class="img-responsive" height="600px">
+	</p>
 	
-		<p class="text-justify">
-		Across each category, we find that RT-1 outperforms the prior models significantly.
-On seen tasks, RT-1 is able to perform 97% of the more than 700 instructions successfully, which is 25% more than BC-Z and 32% more than Gato.
-On unseen tasks, RT-1 shows it is capable of generalizing to novel instructions, performing 76% of the never-before-seen instructions, 24% more than the next best baseline. 
-On distractors and backgrounds, we find that RT-1 is quite robust, successfully executing 83% of the distractor robustness tasks and 59% of the background robustness tasks (36% and 18% higher than the next best alternative, respectively).
-	        </p>
-                <p style="text-align:center;">
-                    <image src="img/main_baselines.png"  class="img-responsive" height="600px">
-                </p>
+	<p class="text-justify">
+	Next, we ablate our design choices...
+	</p>
 		
-		<p class="text-justify">
-		Next, we test whether our method generalizes enough across all the different axes that we evaluated previously to be deployed in a real kitchen, which poses multiple distribution shifts all at once such as new tasks combinations, object distractors as well as a novel environment.
-		The office kitchen involves a dramatic shift from the training environment and we categorize tasks across these scenarios with varying levels of generalization: L1 for generalization to the new counter-top layout and lighting conditions, L2 for additionally generalization to unseen distractor objects, L3 for additional generalization to drastically new task settings, new task objects or objects in unseen locations such as near a sink. The three levels that correspond to three tasks of restocking, preparing a snack and fetching a lost object in the real kitchen.
-		<br><br>
-		Simiarly to the previous experiment, RT-1 generalizes better than the baselines. Gato generalizes fairly well at the first level but it performs significantly drops for the more difficult generalization scenarios. BC-Z and its XL equivalent perform fairly well at L2 level and better than Gato at L3 but they are still not at the generalization level of RT-1. 
-	        </p>
-			
-		  <p style="text-align:center;">
-                    <image src="img/kanishka.png"  class="img-responsive" height="450px">
-                </p>
-			  
-		<p> Given these initial results, we try to push RT-1 further by incorporating data from different data sources such as simulation (green box below) or data collected by another robot (red box below). 
-		 <p style="text-align:center;">
-                    <image src="img/multi_simple.png"  class="img-responsive" height="600px">
-                </p>
-			  
-                <p class="text-justify">
-		    Our results indicate that RT-1’s absorption properties also include the ability to acquire new skills by observing other simulation or robots’ experiences without sacrificing the performance of the original tasks. In the left plot below, we see that by mixing real and sim data, the generalization capabilities of the robot improve significantly when evaluated on objects seen only in simulation (and they only drop by 2% on all other objects).
-		    <br>
-		    Even more interestingly, we observe that mixing our original dataset with data from another robot (in this the Kuka IIWA robot) improves generalization as well: the 22% accuracy seen when training with our data alone jumps to 39% when RT-1 is trained on both bin-picking data from Kuka and the existing data. That’s almost a 2x improvement (17%) that shows an effective transfer from a different robot morphology and presents an exciting avenue for future work where we combine many more multi-robot datasets to enhance the robot capabilities.
-		</p>
-			
-        	 <p style="text-align:center;">
-                    <image src="img/multi_results.png"  class="img-responsive" height="600px">
-                </p>
-                
-                Given these results, we put everything together to evaluate the ability of RT-1 to execute long-horizon instructions in the <a href="https://say-can.github.io/">(PaLM-)SayCan framework</a>. We implement two other baselines for comparison: (1) SayCan with Gato, and (2) SayCan with BC-Z. We evaluate all three policies in two real kitchens. Kitchen2 constitutes a much more challenging generalization scene than Kitchen1; the mock kitchen used to gather most of the training data was modeled after Kitchen1.
-                 <p style="text-align:center;">
-                    <image src="img/saycan_table.png"  class="img-responsive" height="600px">
-                </p>
-                
-
-		<p class="text-justify">
-		We see that RT-1 achieves a 67% execution success rate in Kitchen1, and is better than other baselines. Due to the generalization difficulty presented by the new unseen kitchen, the performance of SayCan with Gato and SayCan with BCZ shapely falls, while RT-1 does not show a visible drop.
-		<br><br>
+	  <p style="text-align:center;">
+	    <image src="img/qt_ablations.png"  class="img-responsive" height="450px">
+	</p>
+		  
+	<p> 
+	 We also ablate n-step return...
+	</p>
+	 <p style="text-align:center;">
+	    <image src="img/nstep_table.png"  class="img-responsive" height="600px">
+	</p>
+		  
+	<p class="text-justify">
+	To try to scale up the training...    
+	</p>
 		
-		Below, we show a few example videos showing how PaLM-SayCan-RT1 can be used to plan and execute ultra-long horizon tasks, with as many as 50 steps. 
-		The first task "Bring me the rice chips from the drawer" is executed in an office kitchen that the robot has never seen before.
-		</p>
-		<p style="test-align:center;">
-					<video id="v0" width="100%" playsinline muted loop controls>
-                       <source src="img/saycan_rt1_demo1_comp.mp4" type="video/mp4">
-                   </video>		
+	 <p style="text-align:center;">
+	    <image src="img/large_offline_results.png"  class="img-responsive" height="600px">
+	</p>
+
+	<p class="text-justify">
+	Finally, we employ Q-function as an affordance model...
+	</p>
+	 <p style="text-align:center;">
+	    <image src="img/affordance_perf.png"  class="img-responsive" height="600px">
+	</p>
+
+	<p class="text-justify">
+	We also combine it with a large language model...
+	</p>
+	 <p style="text-align:center;">
+	    <image src="img/affordance_perf.png"  class="img-responsive" height="600px">
+	</p>
+	<p><
+        Below we show two examples...
         </p>
-		<p class="text-justify">
+	 <p style="text-align:center;">
+	    <image src="img/saycan_qt_1.png"  class="img-responsive" height="600px">
+	</p>
+	 <p style="text-align:center;">
+	    <image src="img/saycan_qt_1.png"  class="img-responsive" height="600px">
+	</p>
+	
 
-         For the second task "Roses are red, violets are blue, bring me the rice chips from the drawer, and a napkin too." the execution 
-			and planning process are shown in the video below.
-		</p>
-        <p style="test-align:center;">
-					<video id="v0" width="100%" playsinline muted loop controls>
-                       <source src="img/saycan_rt1_demo2_comp.mp4" type="video/mp4">
-                   </video>		
-        </p>
-        <p class="text-justify">
-
-         In the next example, we show SayCan is able to plan and execute a very long-horizon task involving 50+ steps.
-		</p>
-        <p style="test-align:center;">
-					<video id="v0" width="100%" playsinline muted loop controls>
-                       <source src="img/saycan_rt1_demo3_comp.mp4" type="video/mp4">
-                   </video>		
-
-	    </div>
-        </div>
-            
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+	<h3>
+	    Video
+	</h3>
+	<video id="v0" width="100%" playsinline muted loop controls>
+	       <source src="img/saycan_rt1_demo3_comp.mp4" type="video/mp4">
+        </video>		
+    </div>
+</div>
 
          <div class="row">
             <div class="col-md-8 col-md-offset-2">
