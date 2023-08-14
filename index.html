@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>RT-1: Robotics Transformer</title>
+    <title>Q-Transformer</title>
 
     <meta name="description" content="RT-1: Robotics Transformer">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -74,7 +74,7 @@
     <div class="container" id="main">
         <div class="row">
             <h2 class="col-md-12 text-center">
-                <strong><font size="+6">RT-1: Robotics Transformer</font></strong> </br> for Real-World Control at Scale </br> 
+                <strong><font size="+6">Q-Transformer: </font></strong> </br> Scalable Offline Reinforcement Learning via Autoregressive Q-Functions </br> 
                 <!--<small>
                     CoRL 2021
                 </small>-->
@@ -84,22 +84,15 @@
             <div class="col-md-12 text-center">
                 <ul class="list-inline">
                 <br>
-                <li>Anthony Brohan</li> <li>Noah Brown</li> <li>Justice Carbajal</li> <li>Yevgen Chebotar</li> <li>Joseph Dabis</li> <li>Chelsea Finn</li> <li>Keerthana Gopalakrishnan</li> <br>
-                 <li>Karol Hausman</li> <li>Alex Herzog</li> <li>Jasmine Hsu</li> <li>Julian Ibarz</li> <li>Brian Ichter</li> <li>Alex Irpan</li> <li>Tomas Jackson</li> <br>
-                  <li>Sally Jesmonth</li> <li>Nikhil Joshi</li> <li>Ryan Julian</li> <li>Dmitry Kalashnikov</li> <li>Yuheng Kuang</li> <li>Isabel Leal </li> <li>Kuang-Huei Lee</li> <br>
-                  <li>Sergey Levine</li> <li>Yao Lu</li> <li>Utsav Malla</li> <li>Deeksha Manjunath</li> <li>Igor Mordatch</li> <li>Ofir Nachum</li> <li>Carolina Parada</li> <br>
-                 <li>Jodilyn Peralta</li> <li>Emily Perez</li> <li>Karl Pertsch</li> <li>Jornell Quiambao</li> <li>Kanishka Rao</li> <li>Michael Ryoo</li> <li>Grecia Salazar</li> <br>
-                 <li>Pannag Sanketi</li> <li>Kevin Sayed</li> <li>Jaspiar Singh</li> <li>Sumedh Sontakke</li> <li>Austin Stone</li> <li>Clayton Tan</li> <li>Huong Tran</li>  <br>
-                 <li>Vincent Vanhoucke</li> <li>Steve Vega</li> <li>Quan Vuong</li> <li>Fei Xia</li> <li>Ted Xiao</li> <li>Peng Xu</li> <li>Sichun Xu</li> <li>Tianhe Yu</li> <li>Brianna Zitkovich</li> <br>
+                <li>Yevgen Chebotar<sup>*</sup></li> <li>Quan Vuong<sub>*</sub></li> <li>Karol Hausman</li> <li>Fei Xia</li> <li>Yao Lu</li> <li>Alex Irpan</li> <li>Aviral Kumar</li> <br>
+                 <li>Tianhe Yu</li> <li>Alexander Herzog</li> <li>Karl Pertsch</li> <li>Keerthana Gopalakrishnan</li> <li>Julian Ibarz</li> <li>Ofir Nachum</li> <li>Grecia Salazarn</li> <br>
+                  <li>Huong T Tran</li> <li>Jodilyn Peralta</li> <li>Clayton Tan</li> <li>Deeksha Manjunath</li> <li>Jaspiar Singht</li> <li>Brianna Zitkovich</li> <li>Tomas Jackson</li> <br>
+                  <li>Kanishka Rao</li> <li>Chelsea Finn</li> <li>Sergey Levine</li><br>
                 <br>
-			<b><i> Authors listed in alphabetical order (see paper appendix for contribution statement). </i></b>
+			<b><i> <sub>*</sub> Equal Contribution. </i></b>
 		<br><br>
                     <a href="http://g.co/robotics">
-                    <image src="img/rng-logo.png" height="37px"> </a>
-                    <a href="https://everydayrobots.com">
-                    <image src="img/edr-logo.png" height="40px"> </a>
-                    <a href="https://research.google/teams/brain/">   
-                    <image src="img/google-research-logo.png" height="25px"> </a> 
+                    <img src="img/deepmind.png" height="67px"> </a>
                     
                 </ul>
             </div>
@@ -153,11 +146,7 @@
                     Abstract
                 </h3>
                 <p class="text-justify">
-By transferring knowledge from large, diverse, task-agnostic datasets, modern machine learning models can enable solving specific downstream tasks either zero-shot or with small task-specific datasets to a high level of performance. 
-While this capability has been demonstrated in other fields such as computer vision, natural language processing or speech recognition, it remains to be shown in robotics, where the generalization and fine-tuning capabilities of the models are particularly critical due to the difficulty of collecting real-world robotic data.
-We argue that one of the keys to the success of such general robotic models lies with open-ended task-agnostic training, combined with high-capacity architectures that can absorb all of the diverse, robotic data.
-In this paper, we present a model class, dubbed Robotics Transformer, that exhibits promising scalable, pre-trained model properties.
-We verify our conclusions in a comprehensive study of different model classes and their ability to generalize as a function of the data size, model size, and data diversity based on a large-scale data collection on real robots performing real-world tasks.
+			In this work, we present a scalable reinforcement learning method for training multi-task policies from large offline datasets that can leverage both human demonstrations and autonomously collected data. Our method uses a Transformer to provide a scalable representation for Q-functions trained via offline temporal difference backups. We therefore refer to the method as Q-Transformer. By discretizing each action dimension and representing the Q-value of each action dimension as separate tokens, we can apply effective high-capacity sequence modeling techniques for Q-learning. We present several design decisions that are crucial to obtain good performance with offline RL training, and show that Q-Transformer outperforms prior offline RL algorithms and imitation learning techniques on a large  diverse real-world robotic manipulation task suite.
                 </p>
              <p style="text-align:center;">
         	    	<video id="v0" width="100%" playsinline autoplay muted loop>
