@@ -158,23 +158,28 @@
 	    Approach
 	</h3>
 	<p class="text-justify">
-		Our approach...
-	<p style="text-align:center;">
-	    <image src="img/qt_title_overview.png" class="img-responsive">
-	</p>
-	Bellman update original...
+	We first describe how to enable using Transformers for Q-learning by applying discretization and autoregression of the action space.
+	The classical way for learning a Q-function using TD-learning is based on the Bellman update rule:
 	<p style="text-align:center;">
 	        <image src="img/bellman_original.png" class="img-responsive">
 	</p>
-	Bellman update for Q-Transformer...
+	We change the Bellman update to be performed for each action dimension by transforming the original MDP of the problem into an MDP where each
+	action dimension is treated as a separate step for Q-learning. In particular, given the action dimensionality <i>d<sub>A</sub></i>, the new Bellman update rule is:
 	<p style="text-align:center;">
 	        <image src="img/bellman_qt.png" class="img-responsive">
 	</p>
-	Overview of the update...
+	This means that for each intermediate action dimension we maximize over the next action dimension given the same state, 
+	and for the final action dimension we use the first action dimension from the next state.
+
+	In order to account for the distribution shift during offline learning, we introduce a simple regularization technique 
+	that minimizes unseen actions (in the discretized case unseen action bins) to the lowest value. To accelerate learning, we also employ
+	Monte-Carlo (MC) returns that use the original return-to-go from a given episode. The illustration of our full learning update
+	can be seen below.
 	<p style="text-align:center;">
 	        <image src="img/qt_update_fig.png" class="img-responsive">
 	</p>
-	Our model...
+	   
+	Our network architecture is based on RT-1 with a modification to output Q-values instead of action probabilities.
 	<p style="text-align:center;">
 	        <image src="img/qt_network_arch.png" class="img-responsive">
 	</p>		    
