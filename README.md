@@ -1,1 +1,1 @@
-Website for RT-1: Robotics Transformer for Real-World Control at Scale
+Website for "Q-Transformer: Scalable Offline Reinforcement Learning via Autoregressive Q-Functions".
