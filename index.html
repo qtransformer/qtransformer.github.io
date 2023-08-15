@@ -182,8 +182,7 @@
 	<p>
 	In order to account for the distribution shift during offline learning, we introduce a simple regularization technique 
 	that minimizes unseen actions (in the discretized case unseen action bins) to the lowest value. To accelerate learning, we also employ
-	Monte-Carlo (MC) returns that use the original return-to-go from a given episode. The illustration of our full learning update
-	can be seen below.
+	Monte-Carlo (MC) returns that use the original return-to-go from a given episode and n-step returns that can skip per-dimension maximization.
 	</p>	    
  </div>
 </div>
@@ -194,68 +193,82 @@
 	    Results
 	</h3>
 	<p class="text-justify">
-	We evaluate ...	 <br> <br>
-	We start with real world experiments...
+	In our experiments, we start by evaluating Q-Transformer on a suite of real world tasks introduced in the RT-1 paper while limiting the data
+	per task to only contain 100 human demonstrations. In addition to demonstrations, we also add autonomously collected failed episodes, resulting
+	in a dataset of 38,000 positive examples from demos and 20,000 negative autonomously collected examples.
 	<p style="text-align:center;">
 	    <image src="img/real_results.png" class="img-responsive">        	   
 	</p>
-	As can be seen...
+	Compared to such baselines as RT-1, IQL and Decision Transformer (DT), Q-Transformer can effectively utilize autonomous episodes to significantly
+	improve on such skills as picking from and placing objects into drawers, moving objects near targets and closing and opening drawers.
 	</p>
 
 	<p class="text-justify">
-		We also benchmark in simulation...
+	We also benchmark our method in a challenging simulated picking task, where only ~8% of the data are positive examples, and the rest are
+	noisy negative examples. Q-learning methods, such as QT-Opt, IQL, AW-Opt and our Q-Transformer are generally performing better on this task
+	as they are able to utilize negative examples to learn policies through dynamic programming.
 	</p>
 	<p style="text-align:center;">
-	    <image src="img/sim_exps.png"  class="img-responsive" height="600px">
+	    <image src="img/sim_exps.png"  class="img-responsive"  style="width:70%">
 	</p>
 	
 	<p class="text-justify">
-	Next, we ablate our design choices...
+	Ablating our decision choices on this picking task, we notice that both the conservative regularizer and MC returns are important
+	for retraining the performance. Switching to a CQL-like regularizer (Softmax regularizes in the case of discrete actions) works significantly worse
+	as it bounds the policy too much to the distribution of the data, showing that our choice of the regularizer works better for such tasks.
 	</p>
-		
 	  <p style="text-align:center;">
-	    <image src="img/qt_ablations.png"  class="img-responsive" height="450px">
+	    <image src="img/qt_ablations.png"  class="img-responsive" style="width:70%">
 	</p>
 		  
 	<p> 
-	 We also ablate n-step return...
+	 We also ablate n-step returns and notice that although introducing bias they can help us achieving the same high performance in much fewer number of gradient steps,
+	making them an efficient choice in many problems.
 	</p>
 	 <p style="text-align:center;">
-	    <image src="img/nstep_table.png"  class="img-responsive" height="600px">
+	    <image src="img/nstep_table.png"  class="img-responsive" style="width:70%">
 	</p>
 		  
 	<p class="text-justify">
-	To try to scale up the training...    
+	We also try to run our Q-Transformer on a much larger dataset, scaling up the number of positive examples to  115,000 and 
+	the number of negative examples to 185,000 resulting in 300,000 episodes. Q-Transformer is still able to learn from 
+	this large dataset and even provide a small percentage of improvement over the BC baseline.
 	</p>
 		
 	 <p style="text-align:center;">
-	    <image src="img/large_offline_results.png"  class="img-responsive" height="600px">
+	    <image src="img/large_offline_results.png"  class="img-responsive" style="width:70%">
 	</p>
 
 	<p class="text-justify">
-	Finally, we employ Q-function as an affordance model...
+	Finally, we use the Q-function trained by Q-Transformer as an affordance model in combination with a language planner,
+	similar to the SayCan work.
 	</p>
 	 <p style="text-align:center;">
-	    <image src="img/affordance_perf.png"  class="img-responsive" height="600px">
+	    <image src="img/affordance_perf.png"  class="img-responsive" style="width:70%">
+	</p>
+	<p>
+	Q-Transformer affordance estimation works better than the previously used QT-Opt trained Q-function, especially when combined
+	with relabeling non-sampled tasks as negatives for the current task during training. As Q-Transformer does not require sim-to-real training
+	that was used for the QT-Opt training, it makes it easier to use it in the absence of suitable simulations.
 	</p>
 
 	<p class="text-justify">
-	We also combine it with a large language model...
+	To test the full planning + execution system, we use Q-Transformer for both affordance estimation and the actual policy execution, where it
+	shows to outperform the previous combination of QT-Opt and RT-1.
 	</p>
 	 <p style="text-align:center;">
-	    <image src="img/affordance_perf.png"  class="img-responsive" height="600px">
+	    <image src="img/saycan_perf.png"  class="img-responsive" style="width:70%">
 	</p>
-	<p><
-        Below we show two examples...
+	<p>
         </p>
 	 <p style="text-align:center;">
-	    <image src="img/saycan_qt_1.png"  class="img-responsive" height="600px">
+	    <image src="img/saycan_qt_1.png"  class="img-responsive">
 	</p>
 	 <p style="text-align:center;">
-	    <image src="img/saycan_qt_1.png"  class="img-responsive" height="600px">
+	    <image src="img/saycan_qt_1.png"  class="img-responsive">
 	</p>
-	
-
+        As can be seen in the examples of task affordance values for a given image, Q-Transformer can provide high-quality affordance values
+	that can be used in downstream plan and execute frameworks.
     </div>
 </div>
 <div class="row">
